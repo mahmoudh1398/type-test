@@ -50,8 +50,16 @@ function updateErrors() {
   // TODO: Complete this function
 }
 
-function updateWpm() {
+function updateWpm(typedCharacter,timeElapsed) {
   // TODO: Complete this function
+
+  let x =typedCharacter/5
+  let y =x/timeElapsed
+  let wpm =y*60
+
+  wpmText.innerText =`${wpm}`
+
+
 }
 
 function updateTimer() {
