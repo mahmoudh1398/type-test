@@ -23,8 +23,15 @@ initializeTest({ timeLimit: TIME_LIMIT, text: TEXT });
 
 textArea.addEventListener("input", update);
 
+// hasanzadeh
 function initializeTest({ timeLimit, text }) {
   // TODO: Complete this function
+  document.getElementById('time').innerText = timeLeft;
+  text.split('').forEach(character => {
+    let span = document.createElement('SPAN');
+    span.innerText = character;
+    typeText.appendChild(span);
+  });
 }
 
 function update() {
@@ -37,9 +44,23 @@ function update() {
   updateErrors();
   updateAccuracy();
 }
-
+// hasanzadeh
 function updateCharactersStatus() {
   // TODO: Complete this function
+  const charArr = typeText.children;
+  let userChar = textArea.value.trim();
+  for (let i = 0; i < userChar.length; i++) {
+    let char = charArr[i].innerText;
+    if(char === userChar[i]) {
+      charArr[i].classList = 'correct-char';
+    }else if (char !== userChar[i]){
+      charArr[i].classList = 'incorrect-char';
+      errors++;
+    }else {
+      charArr[i].classList = '';
+    }
+  }
+  errorText.innerHTML = errors;
 }
 
 function updateAccuracy() {
