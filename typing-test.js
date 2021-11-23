@@ -44,10 +44,16 @@ function updateCharactersStatus() {
 
 function updateAccuracy() {
   // TODO: Complete this function
+  let typedCharacterFalse = document.getElementsByClassName('incorrect-char').length
+  let typedCharacterTrue = document.getElementsByClassName('correct-char').length
+  let typedCharacter = typedCharacterFalse + typedCharacterTrue
+  let accuracy = (typedCharacter - typedCharacterFalse) / 100
+  return Math.round(accuracy)
 }
 
 function updateErrors() {
   // TODO: Complete this function
+  
 }
 
 function updateWpm() {
