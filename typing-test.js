@@ -55,7 +55,7 @@ function updateCharactersStatus() {
       charArr[i].classList = 'correct-char';
     }else if (char !== userChar[i]){
       charArr[i].classList = 'incorrect-char';
-      errors++;
+      errors = errors++;
     }else {
       charArr[i].classList = '';
     }
