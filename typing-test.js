@@ -58,6 +58,15 @@ function updateErrors() {
 
 function updateWpm() {
   // TODO: Complete this function
+
+  let charTrue = document.getElementByClassName("correct-char")
+  let charFalse = document.getElementByClassName("incorrect-char")
+  let allChar = charFalse+charTrue
+  let x =allChar/5
+  let y =x/timeElapsed
+  let wpm=y*60
+    return wpmText.innerText = `${wpm}`
+
 }
 
 function updateTimer() {
