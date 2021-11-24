@@ -69,13 +69,13 @@ function updateAccuracy() {
   let typedCharacterFalse = document.getElementsByClassName('incorrect-char').length
   let typedCharacterTrue = document.getElementsByClassName('correct-char').length
   let typedCharacter = typedCharacterFalse + typedCharacterTrue
-  let accuracy = (typedCharacter - typedCharacterFalse) / 100
-  return Math.round(accuracy)
+  let accuracy = (typedCharacter - typedCharacterFalse) / typedCharacter
+  accuracyText.innerText = Math.round(accuracy * 100)
 }
 
 function updateErrors() {
   // TODO: Complete this function
-  
+  errorText.innerText = errors
 }
 
 function updateWpm() {
