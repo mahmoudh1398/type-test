@@ -26,7 +26,7 @@ textArea.addEventListener("input", update);
 // hasanzadeh
 function initializeTest({ timeLimit, text }) {
   // TODO: Complete this function
-  document.getElementById('time').innerText = timeLeft;
+  document.getElementById('time').innerText = timeLimit - timeLeft;
   text.split('').forEach(character => {
     let span = document.createElement('SPAN');
     span.innerText = character;
@@ -49,14 +49,12 @@ function updateCharactersStatus() {
   // TODO: Complete this function
   let textchars = typeText.childNodes;
   let userChars = textArea.value;
-  // console.log(userChars);
   for (let i = 0; i < userChars.length; i++) {
     let char = textchars[i].innerText;
     if(char !== userChars[i]) {
       textchars[i].classList = 'incorrect-char';
     } else if (char === userChars[i]) {
       textchars[i].classList = 'correct-char';
-      
     } else if(userChars[i] === '') {
       textchars[i].classList = '';
     }
