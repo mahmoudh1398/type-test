@@ -47,20 +47,21 @@ function update() {
 // hasanzadeh
 function updateCharactersStatus() {
   // TODO: Complete this function
-  const charArr = typeText.children;
-  let userChar = textArea.value.trim();
-  for (let i = 0; i < userChar.length; i++) {
-    let char = charArr[i].innerText;
-    if(char === userChar[i]) {
-      charArr[i].classList = 'correct-char';
-    }else if (char !== userChar[i]){
-      charArr[i].classList = 'incorrect-char';
-      errors = errors++;
-    }else {
-      charArr[i].classList = '';
+  let textchars = typeText.childNodes;
+  let userChars = textArea.value;
+  // console.log(userChars);
+  for (let i = 0; i < userChars.length; i++) {
+    let char = textchars[i].innerText;
+    if(char !== userChars[i]) {
+      textchars[i].classList = 'incorrect-char';
+    } else if (char === userChars[i]) {
+      textchars[i].classList = 'correct-char';
+      
+    } else if(userChars[i] === '') {
+      textchars[i].classList = '';
     }
   }
-  errorText.innerHTML = errors;
+  errors = document.getElementsByClassName('incorrect-char').length;
 }
 
 function updateAccuracy() {
