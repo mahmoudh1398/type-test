@@ -26,7 +26,7 @@ textArea.addEventListener("input", update);
 // hasanzadeh
 function initializeTest({ timeLimit, text }) {
   // TODO: Complete this function
-  document.getElementById('time').innerText = timeLeft;
+  document.getElementById('time').innerText = timeLimit - timeLeft;
   text.split('').forEach(character => {
     let span = document.createElement('SPAN');
     span.innerText = character;
@@ -47,20 +47,19 @@ function update() {
 // hasanzadeh
 function updateCharactersStatus() {
   // TODO: Complete this function
-  const charArr = typeText.children;
-  let userChar = textArea.value.trim();
-  for (let i = 0; i < userChar.length; i++) {
-    let char = charArr[i].innerText;
-    if(char === userChar[i]) {
-      charArr[i].classList = 'correct-char';
-    }else if (char !== userChar[i]){
-      charArr[i].classList = 'incorrect-char';
-      errors = errors++;
-    }else {
-      charArr[i].classList = '';
+  let textchars = typeText.childNodes;
+  let userChars = textArea.value;
+  for (let i = 0; i < userChars.length; i++) {
+    let char = textchars[i].innerText;
+    if(char !== userChars[i]) {
+      textchars[i].classList = 'incorrect-char';
+    } else if (char === userChars[i]) {
+      textchars[i].classList = 'correct-char';
+    } else if(userChars[i] === '') {
+      textchars[i].classList = '';
     }
   }
-  errorText.innerHTML = errors;
+  errors = document.getElementsByClassName('incorrect-char').length;
 }
 
 function updateAccuracy() {
@@ -68,13 +67,13 @@ function updateAccuracy() {
   let typedCharacterFalse = document.getElementsByClassName('incorrect-char').length
   let typedCharacterTrue = document.getElementsByClassName('correct-char').length
   let typedCharacter = typedCharacterFalse + typedCharacterTrue
-  let accuracy = (typedCharacter - typedCharacterFalse) / 100
-  return Math.round(accuracy)
+  let accuracy = (typedCharacter - typedCharacterFalse) / typedCharacter
+  accuracyText.innerText = Math.round(accuracy * 100)
 }
 
 function updateErrors() {
   // TODO: Complete this function
-  
+  errorText.innerText = errors
 }
 
 function updateWpm() {
