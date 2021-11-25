@@ -80,20 +80,7 @@ function updateErrors() {
 }
 
 function updateWpm() {
-  // TODO: Complete this function
-
-  // let charTrue = document.getElementByClassName("correct-char").length;
-  // let charFalse = document.getElementByClassName("incorrect-char").length;
-  // // let allChar = charFalse+charTrue
-  // let x =allChar/5
-  // let y =x/timeElapsed
-  // let wpm=y*60
-  //   return wpmText.innerText = `${wpm}`
-  // if (timeLeft == 0) {
   wpm = Math.round((((typedCharacter / 5) / timeElapsed) * 60));
-  // }
-  // updateTimer()
-  // wpmText.innerText = `${wpm}`;
 }
 
 function updateTimer() {
