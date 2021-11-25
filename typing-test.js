@@ -86,7 +86,7 @@ function updateWpm() {
   let x =allChar/5
   let y =x/timeElapsed
   let wpm=y*60
-    return wpmText.innerText = `${wpm}`
+  wpmText.innerText = `${wpm}`
 
 }
 
